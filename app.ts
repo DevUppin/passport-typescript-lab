@@ -1,4 +1,11 @@
 import express from "express";
+declare global {
+  namespace Express {
+      interface User {
+        id: number;
+      }
+  }
+}
 import expressLayouts from "express-ejs-layouts";
 import session from "express-session";
 import path from "path";
