@@ -5,9 +5,12 @@ const getUserByEmailIdAndPassword = (email: string, password: string) => {
   if (user) {
     if (isUserValid(user, password)) {
       return user;
+    } else {
+      throw new Error("Password is incorrect");
     }
+  } else {
+    throw new Error(`Couldn't find user with email: ${email}`);
   }
-  return null;
 };
 const getUserById = (id:any) => {
   let user = userModel.findById(id);
