@@ -5,6 +5,7 @@
         <img src="/secure-icon.png" alt="icon" width="20%" />
       </h1>
       <h2>Login</h2>
+      <h4><%= error %></h4>
       <form action="/auth/login" method="POST">
       <!-- <form action="/auth/login" method="POST"> -->
         <div class="form-group">
@@ -29,7 +30,7 @@
         </div>
         <button type="submit" class="btn btn-primary btn-block">Login</button>
         <h4>OR</h4>
-        <a href="/auth/github" class="btn btn-secondary btn-block">Login with Github</a>
+        <a href="/github" class="btn btn-secondary btn-block">Login with Github</a>
 
         <!-- <button type="submit" class="btn btn-secondary btn-block">Login with Github</button> -->
       </form>

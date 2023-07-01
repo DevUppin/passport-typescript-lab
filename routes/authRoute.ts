@@ -9,14 +9,19 @@ router.get('/github',
   passport.authenticate('github', { scope: [ 'user:email' ] }));
 
 router.get('/github/callback', 
-  passport.authenticate('github', { failureRedirect: '/auth/login' }),
-  function(req, res) {
+  passport.authenticate('github', { failureRedirect: '/login' }),
+  function(req: Request, res: Response) {
     // Successful authentication, redirect home.
-    res.redirect('/dashboard');
+    res.redirect('/');
   });
 
+// router.get("/login", forwardAuthenticated, (req, res) => {
+//   res.render("login");
+// });
+
 router.get("/login", forwardAuthenticated, (req, res) => {
-  res.render("login");
+  let error = (req.session as any).messages || "";
+  res.render("login", { error });
 });
 
 
